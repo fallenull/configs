@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+echo "
+╋╋╋┏┓╋╋╋╋╋╋╋╋╋╋┏━┓
+╋╋╋┃┃╋╋╋╋╋╋╋╋╋╋┃┏┛
+┏━━┫┃┏┳┓┏┳━━┳━┳┛┗┓
+┃┏┓┃┗┛┫┗┛┃┏━┫┏╋┓┏┛
+┃┏┓┃┏┓┫┃┃┃┗━┫┃┃┃┃
+┗┛┗┻┛┗┻┻┻┻━━┻┛┗┻┛"
+
+echo -e "\nWelcome to akmcnf installer!\nLet ask you for some questions:\n"
+
+echo "Are you using Archlinux? [y/n] "; read distro
+if [ $distro == "y" ]
+then sudo pacman -S i3-gaps sway xorg-xwayland grim main slurp wl-clipboard feh rofi --noconfirm --needed
+fi
+
+echo "Install i3 config? [y/n] "; read ithree
+if [ $ithree == "y" ]
+then mkdir ~/.config/i3; curl https://raw.githubusercontent.com/akmtxc/configs/main/i3config -o ~/.config/i3/config
+fi
+
+echo "Install sway config? [y/n] "; read sway
+if [ $sway == "y" ]
+then mkdir ~/.config/sway; curl https://raw.githubusercontent.com/akmtxc/configs/main/swayconf -o ~/.config/sway/config
+fi
+
+echo "Install i3status config? [y/n] "; read ithreestatus
+if [ $ithreestatus == "y" ]
+then mkdir ~/.config/i3status; curl https://raw.githubusercontent.com/akmtxc/configs/main/i3statusconfig -o ~/.config/i3status/config
+fi
+
+echo "Install rofi config? [y/n] "; read rofi
+if [ $rofi == "y" ]
+then mkdir ~/.config/rofi; curl https://raw.githubusercontent.com/akmtxc/configs/main/roficonf.rasi -o ~/.config/rofi/config.rasi
+fi
